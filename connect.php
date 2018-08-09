@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
 /*$host="localhost";
 $user="root";
 $pass="";
@@ -50,10 +50,11 @@ if($_FILES["file"]["name"] != '')
 {
  $arrayname = explode('.', $_FILES["file"]["name"]);
  $ext = end($arrayname);
- $fixname = $id_outlet . '-' . $nama_outlet . '.' . $ext;
- $location = './foto_outlet/' . $fixname;
- move_uploaded_file($_FILES["file"]["tmp_name"], $location);
- $image_path = $location;
+ $fixname = $id_outlet . '-' . rand(100, 999) . '.' . $ext;
+ $locationinserver = './foto_outlet/' . $fixname;
+ move_uploaded_file($_FILES["file"]["tmp_name"], $locationinserver);
+ $locationindb = '/foto_outlet/' . $fixname;
+ $image_path = $locationindb;
 }
 
 $flag_show="1";
@@ -105,25 +106,28 @@ $flag_show="1";
 /*$sql="insert into tb_anggota(kd_anggota,nama_anggota,alamat_anggota) values ('$kd_anggota','$nama_anggota','$alamat_anggota');insert into tb_outlet(id_outlet,nama_outlet,kota,rs_number) values ('$id_outlet','$nama_outlet','$kota','$rs_number');insert into tb_flag(id_flag,id_outlet,kd_anggota) values (1,'$id_outlet','$kd_anggota');";
 mysqli_multi_query($connect,$sql);*/
 
-if ($fungsi=="1")
+if ($fungsi=="1") //untuk insert data outlet baru
 {
 	$flag_show = 1;
-	$sql="insert into tb_outlet(id_outlet,nama_outlet,kota,rs_number,longitude,latitude,image_path,flag_show) 
-	      values ('$id_outlet','$nama_outlet','$kota','$rs_number','$longitude','$latitude','$image_path','$flag_show')";
-    mysqli_query($connect,$sql);
+	$sql="insert into tb_outlet(id_outlet,nama_outlet,kota,rs_number,longitude,latitude,image_path,flag_show) values ('$id_outlet','$nama_outlet','$kota','$rs_number','$longitude','$latitude','$image_path','$flag_show')";
+  mysqli_query($connect,$sql);
 }
 
-//untuk delete outlet
-else if ($fungsi=="2")
+else if ($fungsi=="2") //untuk delete outlet
 {
 	$sql="update tb_outlet set flag_show = 0 where id_outlet='$id_outlet'";
 	mysqli_query($connect,$sql);
 }
 
-else if ($fungsi=="3")
+else if ($fungsi=="3") //untuk update data tanpa gambar outlet
 {
-	$sql="update tb_outlet set nama_outlet='$nama_outlet', kota='$kota', rs_number='$rs_number', image_path='$image_path',
-	      longitude ='$longitude', latitude='$latitude' where id_outlet='$id_outlet'";
+	$sql="update tb_outlet set nama_outlet='$nama_outlet', kota='$kota', rs_number='$rs_number', longitude='$longitude', latitude='$latitude' where id_outlet='$id_outlet'";
+	mysqli_query($connect,$sql);
+}
+
+else if ($fungsi=="4") //untuk update gambar outlet saja
+{
+	$sql="update tb_outlet set image_path='$image_path' where id_outlet='$id_outlet'";
 	mysqli_query($connect,$sql);
 }
 

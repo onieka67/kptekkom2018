@@ -22,10 +22,10 @@ header("Access-Control-Allow-Origin *");
 /*if(!$connect){echo 'fail';}
 else{echo 'success';}
 */
-$host="localhost";
-$user="root";
-$pass="";
-$db = "dbtelkomsel";
+$host="sql12.freemysqlhosting.net";
+$user="sql12251262";
+$pass="lRfiJRA2JQ";
+$db = "sql12251262";
 $connect=mysqli_connect($host,$user,$pass,$db);
 
 /*$id_outlet=isset($_GET['id_outlet']) ? $_GET['id_outlet'] : "";

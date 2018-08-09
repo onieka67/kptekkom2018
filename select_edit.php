@@ -3,10 +3,10 @@ header('Access-Control-Allow-Origin: *');
 $id_outlet=isset($_POST['id_outlet']) ? $_POST['id_outlet'] : "";
 
 header('Content-Type: application/json');
-$host="localhost";
-$user="root";
-$pass="";
-$db = "dbtelkomsel";
+$host="sql12.freemysqlhosting.net";
+$user="sql12251262";
+$pass="lRfiJRA2JQ";
+$db = "sql12251262";
 $connect=mysqli_connect($host,$user,$pass,$db);
 
 $sql = "SELECT id_outlet,nama_outlet,kota,rs_number,longitude,latitude,image_path FROM tb_outlet WHERE id_outlet='$id_outlet'";

@@ -2,10 +2,10 @@
 	//setting header to json
 	header('Content-Type: application/json');
 	header('Access-Control-Allow-Origin: *');
-	$host="localhost";
-	$user="root";
-	$pass="";
-	$db = "dbtelkomsel";
+	$host="sql12.freemysqlhosting.net";
+$user="sql12251262";
+$pass="lRfiJRA2JQ";
+$db = "sql12251262";
 	$connect=mysqli_connect($host,$user,$pass,$db);
 	$pagerow = isset($_POST['pagerow'])? $_POST['pagerow'] : "";
 	$page = isset($_POST['page'])? $_POST['page'] : "";

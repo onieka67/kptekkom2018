@@ -3,7 +3,8 @@ header('Access-Control-Allow-Origin: *');
 $id_outlet=isset($_POST['id_outlet']) ? $_POST['id_outlet'] : "";
 
 header('Content-Type: application/json');
-$host="sql12.freemysqlhosting.net";
+//$host="sql12.freemysqlhosting.net";
+$host="http://kptekkom2018.herokuapp.com";
 $user="sql12251262";
 $pass="lRfiJRA2JQ";
 $db = "sql12251262";

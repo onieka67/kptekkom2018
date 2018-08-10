@@ -4,16 +4,18 @@
 	$page = isset($_POST['page'])? $_POST['page'] : "";
 
 	header('Content-Type: application/json');
-	$host="sql12.freemysqlhosting.net";
-$user="sql12251262";
-$pass="lRfiJRA2JQ";
-$db = "sql12251262";
+	//$host="sql12.freemysqlhosting.net";
+	$host="http://kptekkom2018.herokuapp.com";
+	$user="sql12251262";
+	$pass="lRfiJRA2JQ";
+	$db = "sql12251262";
 	$connect=mysqli_connect($host,$user,$pass,$db);
 
 	if($page == '')
 	{
 		$sql = "SELECT id_outlet,nama_outlet,kota,rs_number,longitude,latitude FROM tb_outlet WHERE flag_show=1 limit 5 offset ".$pagerow;
 	}
+	
 	else
 	{
 		$sql= "SELECT id_outlet,nama_outlet,kota,rs_number,longitude,latitude FROM tb_outlet WHERE flag_show=1 AND

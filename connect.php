@@ -22,7 +22,7 @@ header("Access-Control-Allow-Origin *");
 /*if(!$connect){echo 'fail';}
 else{echo 'success';}
 */
-$host="https://kptekkom2018.herokuapp.com";
+$host="sql12.freemysqlhosting.net";
 $user="sql12251262";
 $pass="lRfiJRA2JQ";
 $db = "sql12251262";
